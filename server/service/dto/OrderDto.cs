@@ -22,14 +22,15 @@ namespace service.dto
                 DeliveryDate = order.DeliveryDate,
                 Status = order.Status,
                 TotalAmount = order.TotalAmount,
-                CustomerId = order.CustomerId,
+                CustomerId = order.CustomerId ?? 0, 
                 OrderEntries = order.OrderEntries.Select(e => new OrderEntryDto
                 {
-                    ProductId = e.ProductId,
+                    ProductId = e.ProductId ?? 0, 
                     Quantity = e.Quantity
                 }).ToList()
             };
         }
+        
 
         public Order ToOrder()
         {
@@ -40,10 +41,10 @@ namespace service.dto
                 DeliveryDate = DeliveryDate,
                 Status = Status,
                 TotalAmount = TotalAmount,
-                CustomerId = CustomerId,
+                CustomerId = CustomerId, 
                 OrderEntries = OrderEntries.Select(e => new OrderEntry
                 {
-                    ProductId = e.ProductId,
+                    ProductId = e.ProductId, 
                     Quantity = e.Quantity
                 }).ToList()
             };
@@ -58,7 +59,7 @@ namespace service.dto
                 DeliveryDate = order.DeliveryDate,
                 Status = order.Status,
                 TotalAmount = order.TotalAmount,
-                CustomerId = order.CustomerId
+                CustomerId = order.CustomerId ?? 0
             };
         }
     }

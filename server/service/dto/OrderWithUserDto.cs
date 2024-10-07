@@ -21,11 +21,10 @@ public class OrderWithUserDto
             DeliveryDate = order.DeliveryDate,
             Status = order.Status,
             TotalAmount = order.TotalAmount,
-            CustomerId = order.CustomerId,
-            Customer = CustomerDto.FromCustomer(order.Customer),
+            CustomerId = order.CustomerId ?? 0, 
             OrderEntries = order.OrderEntries.Select(e => new OrderEntryDto
             {
-                ProductId = e.ProductId,
+                ProductId = e.ProductId ?? 0, 
                 Quantity = e.Quantity
             }).ToList()
         };
@@ -58,7 +57,7 @@ public class OrderWithUserDto
             DeliveryDate = order.DeliveryDate,
             Status = order.Status,
             TotalAmount = order.TotalAmount,
-            CustomerId = order.CustomerId
+            CustomerId = order.CustomerId ?? 0
         };
     }
 }

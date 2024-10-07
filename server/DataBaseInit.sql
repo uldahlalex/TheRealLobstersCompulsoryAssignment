@@ -42,8 +42,8 @@ CREATE TABLE paper_traits (
     paper_id integer NOT NULL,
     trait_id integer NOT NULL,
     CONSTRAINT paper_traits_pkey PRIMARY KEY (paper_id, trait_id),
-    CONSTRAINT paper_traits_paper_id_fkey FOREIGN KEY (paper_id) REFERENCES paper (id),
-    CONSTRAINT paper_traits_trait_id_fkey FOREIGN KEY (trait_id) REFERENCES traits (id)
+    CONSTRAINT paper_traits_paper_id_fkey FOREIGN KEY (paper_id) REFERENCES paper (id) on delete cascade,
+    CONSTRAINT paper_traits_trait_id_fkey FOREIGN KEY (trait_id) REFERENCES traits (id) on delete cascade
 );
 
 CREATE TABLE order_entries (

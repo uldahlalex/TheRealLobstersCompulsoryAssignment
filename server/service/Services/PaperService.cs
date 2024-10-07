@@ -77,11 +77,12 @@ public class PaperService : IPaperService
 
     public async Task DeletePaperAsync(int paperId)
     {
-        var paper = await _context.Papers.FindAsync(paperId);
+        var paper = _context.Papers.Include(p => p.Traits).First(p => p.Id == paperId);
         if (paper == null)
         {
             throw new Exception("Paper not found");
         }
+   
 
         _context.Papers.Remove(paper);
         await _context.SaveChangesAsync();

@@ -84,7 +84,7 @@ export interface Trait {
    * @minLength 0
    * @maxLength 255
    */
-  traitName?: string | null;
+  traitName?: string;
   papers?: Paper[];
 }
 
@@ -111,7 +111,7 @@ export interface OrderEntry {
   /** @format int32 */
   quantity?: number;
   /** @format int32 */
-  productId?: number;
+  productId?: number | null;
   /** @format int32 */
   orderId?: number | null;
   order?: Order | null;
@@ -129,11 +129,11 @@ export interface Order {
    * @minLength 0
    * @maxLength 50
    */
-  status?: string | null;
+  status?: string;
   /** @format double */
   totalAmount?: number;
   /** @format int32 */
-  customerId?: number;
+  customerId?: number | null;
   customer?: Customer | null;
   orderEntries?: OrderEntry[];
 }

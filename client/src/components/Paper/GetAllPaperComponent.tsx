@@ -60,7 +60,7 @@ export default function GetAllPaperComponent() {
                                     <h2 className="card-title">{paper.name}</h2>
                                     <p className="label">Price: ${paper.price}</p>
                                     <p className="label">Stock: {paper.stock}</p>
-                                    <p className="label">Discontinued: {paper.discontinued ? "Yes" : "No"}</p>
+
                                     <div className="badges">
                                         {paper.traits?.map((trait) => (
                                             <span key={trait.traitName} className="badge badge-primary m-1">
